@@ -1,0 +1,59 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://parameta.com/soap"
+           targetNamespace="http://parameta.com/soap"
+           elementFormDefault="qualified">
+
+    <xs:element name="createEmployeeRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="employee" type="tns:employeeType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="createEmployeeResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="status" type="tns:statusType"/>
+                <xs:element name="employee" type="tns:employeeResponseType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="statusType">
+        <xs:sequence>
+            <xs:element name="status" type="xs:string"/>
+            <xs:element name="errors" type="xs:string" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="employeeType">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="lastName" type="xs:string"/>
+            <xs:element name="identificationType" type="xs:string"/>
+            <xs:element name="identification" type="xs:string"/>
+            <xs:element name="birthDate" type="xs:date"/>
+            <xs:element name="employmentDate" type="xs:date"/>
+            <xs:element name="position" type="xs:string"/>
+            <xs:element name="salary" type="xs:double"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="employeeResponseType">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="lastName" type="xs:string"/>
+            <xs:element name="identificationType" type="xs:string"/>
+            <xs:element name="identification" type="xs:string"/>
+            <xs:element name="birthDate" type="xs:date"/>
+            <xs:element name="employmentDate" type="xs:date"/>
+            <xs:element name="position" type="xs:string"/>
+            <xs:element name="salary" type="xs:double"/>
+            <xs:element name="employmentTime" type="xs:string"/>
+            <xs:element name="currentAge" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
